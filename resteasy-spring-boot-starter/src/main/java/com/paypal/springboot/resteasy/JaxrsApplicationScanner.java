@@ -63,6 +63,7 @@ public abstract class JaxrsApplicationScanner {
 
         // We don't want the JAX-RS Application class itself in there
         classes.remove(Application.class);
+        logger.info("Scanning classpath to find JAX-RS Application classes end ");
 
         return classes;
     }

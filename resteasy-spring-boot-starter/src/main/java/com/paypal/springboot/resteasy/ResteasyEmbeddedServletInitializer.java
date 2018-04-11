@@ -10,6 +10,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
+import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.env.ConfigurableEnvironment;
 
@@ -201,9 +202,9 @@ public class ResteasyEmbeddedServletInitializer implements BeanFactoryPostProces
         // TODO
         // See https://github.com/paypal/resteasy-spring-boot/issues/69
 
-        List<String> packages = new ArrayList<String>();
-        packages.add("");
-        return packages;
+//        List<String> packages = new ArrayList<String>();
+//        packages.add("");
+        return AutoConfigurationPackages.get(beanFactory);
     }
 
     /*

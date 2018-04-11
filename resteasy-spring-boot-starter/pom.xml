@@ -5,7 +5,7 @@
 
     <groupId>com.paypal.springboot</groupId>
     <artifactId>resteasy-spring-boot-starter</artifactId>
-    <version>2.3.4-RELEASE</version>
+    <version>2.3.4.KS-RELEASE</version>
     <name>${project.artifactId}</name>
 
     <description>A Spring Boot starter for RESTEasy</description>
@@ -31,20 +31,23 @@
         <url>git@github.com:paypal/resteasy-spring-boot.git</url>
     </scm>
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>kaishustory-nexus</id>
+            <name>User Project Release</name>
+            <url>http://10.0.0.3:8081/nexus/content/repositories/releases/</url>
         </repository>
+
+        <snapshotRepository>
+            <id>kaishustory-nexus</id>
+            <name>User Project SNAPSHOTS</name>
+            <url>http://10.0.0.3:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <springboot.version>1.5.8.RELEASE</springboot.version>
+        <springboot.version>2.0.0.M6</springboot.version>
         <resteasy.version>3.1.4.Final</resteasy.version>
         <coverage.line>80</coverage.line>
         <coverage.branch>80</coverage.branch>
@@ -145,140 +148,140 @@
         </dependency>
     </dependencies>
 
-    <profiles>
+    <!--<profiles>-->
         <!-- Added for Fortify Support -->
-        <profile>
-            <id>fortify</id>
-            <activation></activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.fortify.ps.maven.plugin</groupId>
-                        <artifactId>sca-maven-plugin</artifactId>
-                        <version>4.22</version>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>ossrh</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                                <configuration>
-                                    <keyname>${gpg.keyname}</keyname>
-                                    <passphrase>${gpg.passphrase}</passphrase>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+        <!--<profile>-->
+            <!--<id>fortify</id>-->
+            <!--<activation></activation>-->
+            <!--<build>-->
+                <!--<plugins>-->
+                    <!--<plugin>-->
+                        <!--<groupId>com.fortify.ps.maven.plugin</groupId>-->
+                        <!--<artifactId>sca-maven-plugin</artifactId>-->
+                        <!--<version>4.22</version>-->
+                    <!--</plugin>-->
+                <!--</plugins>-->
+            <!--</build>-->
+        <!--</profile>-->
+        <!--<profile>-->
+            <!--<id>ossrh</id>-->
+            <!--<build>-->
+                <!--<plugins>-->
+                    <!--<plugin>-->
+                        <!--<groupId>org.apache.maven.plugins</groupId>-->
+                        <!--<artifactId>maven-source-plugin</artifactId>-->
+                        <!--<executions>-->
+                            <!--<execution>-->
+                                <!--<id>attach-sources</id>-->
+                                <!--<goals>-->
+                                    <!--<goal>jar</goal>-->
+                                <!--</goals>-->
+                            <!--</execution>-->
+                        <!--</executions>-->
+                    <!--</plugin>-->
+                    <!--<plugin>-->
+                        <!--<groupId>org.apache.maven.plugins</groupId>-->
+                        <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+                        <!--<executions>-->
+                            <!--<execution>-->
+                                <!--<id>attach-javadocs</id>-->
+                                <!--<goals>-->
+                                    <!--<goal>jar</goal>-->
+                                <!--</goals>-->
+                            <!--</execution>-->
+                        <!--</executions>-->
+                    <!--</plugin>-->
+                    <!--<plugin>-->
+                        <!--<groupId>org.apache.maven.plugins</groupId>-->
+                        <!--<artifactId>maven-gpg-plugin</artifactId>-->
+                        <!--<version>1.6</version>-->
+                        <!--<executions>-->
+                            <!--<execution>-->
+                                <!--<id>sign-artifacts</id>-->
+                                <!--<phase>verify</phase>-->
+                                <!--<goals>-->
+                                    <!--<goal>sign</goal>-->
+                                <!--</goals>-->
+                                <!--<configuration>-->
+                                    <!--<keyname>${gpg.keyname}</keyname>-->
+                                    <!--<passphrase>${gpg.passphrase}</passphrase>-->
+                                <!--</configuration>-->
+                            <!--</execution>-->
+                        <!--</executions>-->
+                    <!--</plugin>-->
+                <!--</plugins>-->
+            <!--</build>-->
+        <!--</profile>-->
+    <!--</profiles>-->
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <!-- Added for Fortify Support -->
-                <plugin>
-                    <groupId>com.fortify.ps.maven.plugin</groupId>
-                    <artifactId>sca-maven-plugin</artifactId>
-                    <configuration>
-                        <source>1.8</source>
-                        <maxHeap>1G</maxHeap>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>sca-clean</id>
-                            <goals>
-                                <goal>clean</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>sca-translate-exec</id>
-                            <goals>
-                                <goal>translate</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <version>4.22</version>
-                </plugin>
-                <!-- End Added For Fortify Support -->
-            </plugins>
-        </pluginManagement>
+        <!--<pluginManagement>-->
+            <!--<plugins>-->
+                <!--&lt;!&ndash; Added for Fortify Support &ndash;&gt;-->
+                <!--<plugin>-->
+                    <!--<groupId>com.fortify.ps.maven.plugin</groupId>-->
+                    <!--<artifactId>sca-maven-plugin</artifactId>-->
+                    <!--<configuration>-->
+                        <!--<source>1.8</source>-->
+                        <!--<maxHeap>1G</maxHeap>-->
+                    <!--</configuration>-->
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<id>sca-clean</id>-->
+                            <!--<goals>-->
+                                <!--<goal>clean</goal>-->
+                            <!--</goals>-->
+                        <!--</execution>-->
+                        <!--<execution>-->
+                            <!--<id>sca-translate-exec</id>-->
+                            <!--<goals>-->
+                                <!--<goal>translate</goal>-->
+                            <!--</goals>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
+                    <!--<version>4.22</version>-->
+                <!--</plugin>-->
+                <!--&lt;!&ndash; End Added For Fortify Support &ndash;&gt;-->
+            <!--</plugins>-->
+        <!--</pluginManagement>-->
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
-                <configuration>
-                    <check>
-                        <lineRate>${coverage.line}</lineRate>
-                        <packageLineRate>${coverage.line}</packageLineRate>
-                        <totalLineRate>${coverage.line}</totalLineRate>
-                        <branchRate>${coverage.branch}</branchRate>
-                        <packageBranchRate>${coverage.branch}</packageBranchRate>
-                        <totalBranchRate>${coverage.branch}</totalBranchRate>
-                        <haltOnFailure>true</haltOnFailure>
-                        <regexes>
-                            <regex>
-                                <pattern>com.paypal.springboot.resteasy.JaxrsApplicationScanner</pattern>
-                                <lineRate>80</lineRate>
-                                <branchRate>65</branchRate>
-                            </regex>
-                        </regexes>
-                    </check>
-                    <formats>
-                        <format>html</format>
-                        <format>xml</format>
-                    </formats>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>clean</goal>
-                            <goal>cobertura</goal>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>cobertura-maven-plugin</artifactId>-->
+                <!--<version>2.7</version>-->
+                <!--<configuration>-->
+                    <!--<check>-->
+                        <!--<lineRate>${coverage.line}</lineRate>-->
+                        <!--<packageLineRate>${coverage.line}</packageLineRate>-->
+                        <!--<totalLineRate>${coverage.line}</totalLineRate>-->
+                        <!--<branchRate>${coverage.branch}</branchRate>-->
+                        <!--<packageBranchRate>${coverage.branch}</packageBranchRate>-->
+                        <!--<totalBranchRate>${coverage.branch}</totalBranchRate>-->
+                        <!--<haltOnFailure>true</haltOnFailure>-->
+                        <!--<regexes>-->
+                            <!--<regex>-->
+                                <!--<pattern>com.paypal.springboot.resteasy.JaxrsApplicationScanner</pattern>-->
+                                <!--<lineRate>80</lineRate>-->
+                                <!--<branchRate>65</branchRate>-->
+                            <!--</regex>-->
+                        <!--</regexes>-->
+                    <!--</check>-->
+                    <!--<formats>-->
+                        <!--<format>html</format>-->
+                        <!--<format>xml</format>-->
+                    <!--</formats>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>clean</goal>-->
+                            <!--<goal>cobertura</goal>-->
+                            <!--<goal>check</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
    </build>
 
