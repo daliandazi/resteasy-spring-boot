@@ -5,7 +5,7 @@
 
     <groupId>com.paypal.springboot</groupId>
     <artifactId>resteasy-spring-boot-starter</artifactId>
-    <version>2.3.4.KS-RELEASE</version>
+    <version>2.3.5-SNAPSHOT</version>
     <name>${project.artifactId}</name>
 
     <description>A Spring Boot starter for RESTEasy</description>
@@ -30,20 +30,7 @@
         <developerConnection>scm:git:git@github.com:paypal/resteasy-spring-boot.git</developerConnection>
         <url>git@github.com:paypal/resteasy-spring-boot.git</url>
     </scm>
-    <distributionManagement>
-        <repository>
-            <id>kaishustory-nexus</id>
-            <name>User Project Release</name>
-            <url>http://10.0.0.3:8081/nexus/content/repositories/releases/</url>
-        </repository>
-
-        <snapshotRepository>
-            <id>kaishustory-nexus</id>
-            <name>User Project SNAPSHOTS</name>
-            <url>http://10.0.0.3:8081/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
+    
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
